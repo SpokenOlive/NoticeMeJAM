@@ -5,9 +5,18 @@ enum a_states {
 	idle,
 	moving,
 	attacking,
+	jumping,
+	die,
+	dead,
 }
 
 state = a_states.idle;
+
+// =====================
+// STATS
+// =====================
+hp_max = 10;
+hp_cur = hp_max;
 
 // =====================
 // MOVEMENT
@@ -33,3 +42,15 @@ shot_timer_inc	= 10;
 // =====================
 on_floor	= true;
 attacking	= false;
+
+
+// =====================
+// FUNCTIONS
+// =====================
+function actor_take_damage(dir,dmg,type) {
+	hp_cur -= dmg;
+	if (hp_cur <= 0) {
+		hp_cur = 0;
+		state = a_states.die;
+	}
+}

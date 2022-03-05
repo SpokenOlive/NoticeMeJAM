@@ -1,6 +1,10 @@
-#macro BLOCKSIZE 8
+#macro BLOCKSIZE 32
 
 global.time = 0;
+
+
+
+
 
 
 room_goto(rm_title);

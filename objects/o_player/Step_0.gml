@@ -19,6 +19,7 @@ var shoot	= keyboard_check_pressed(k_button_2);
 switch (state) {
 	case a_states.idle : 
 	case a_states.moving : 
+	case a_states.jumping : 		
 		if (shoot && (!attacking || shot_timer < shot_timer_max*.75)) {
 			attacking = true;
 			shot_timer = shot_timer_max;
@@ -51,6 +52,27 @@ switch (state) {
 				attacking = false;
 			}
 		}
+		
+		if (!on_floor) {
+			state =	a_states.jumping;
+		}
+		else if (hspd == 0) {
+			state = a_states.idle;
+		}
+		else {
+			state = a_states.moving;
+		}
+	break;
+	case a_states.die :
+		hspd	= 0;
+		state	= a_states.dead;
+	break;
+	case a_states.dead:
+		image_alpha = 0;
+		death_timer -= global.time;
+		if (death_timer <= 0) {
+			game_restart();
+		}
 	break;
 }
 
@@ -63,57 +85,37 @@ camera_set_view_mat(camera,view_mat);
 camera_apply(camera);
 
 // =====================
-// APPLY MOVEMENT
-// =====================
-vspd += ((vspd < 0) ? grav : grav * 1.5)*global.time;
-
-hspd = clamp(hspd, -hspd_max*global.time, hspd_max*global.time);
-vspd = clamp(vspd, -vspd_max*global.time, vspd_max*global.time);
-
-if (place_meeting(x+hspd,y,o_solid)) {
-	var inc = sign(hspd);
-	while(!place_meeting(x+inc,y,o_solid)) {
-		x += inc;
-	}
-	hspd = 0;
-}
-x += hspd;
-
-if (place_meeting(x,y+vspd,o_solid)) {
-	var inc = sign(vspd);
-	while(!place_meeting(x,y+inc,o_solid)) {
-		y += inc;
-	}
-	vspd = 0;
-}
-
-y += vspd;
-
-on_floor = place_meeting(x,y+1,o_solid);
-
-
-
-// =====================
 // SRPITES
 // =====================
-if (on_floor) {
-	if (hspd == 0) {
+
+switch (state) {
+	case a_states.idle : 
 		sprite_index = (attacking) ? sprite_shooting_idle : sprite_idle;
-	}
-	else {
+	break;
+	case a_states.moving : 
 		sprite_index = (attacking) ? sprite_shooting_run : sprite_run;
-	}
-}
-else {
-	sprite_index = (attacking) ? sprite_shooting_jump : sprite_jump;
-	if (vspd < 0) {
-		image_index = 0;
-	}
-	else {
-		image_index = 1;
-	}
+	break;
+	case a_states.jumping : 
+		sprite_index = (attacking) ? sprite_shooting_jump : sprite_jump;
+		if (vspd < 0) {
+			image_index = 0;
+		}
+		else {
+			image_index = 1;
+		}
+	break;
+	case a_states.die :
+		
+	break;
+	case a_states.dead:
+		
+	break;
 }
 
+// =====================
+// PARENT
+// =====================
+event_inherited();
 
 
 // =====================

@@ -13,6 +13,7 @@ sprite_shooting_jump	= s_player_shoot_jump;
 //troubleshooting
 cur_grav	= 0;
 jump_from	= [x,y];
+death_timer = 2;
 
 // =====================
 // INPUTS
