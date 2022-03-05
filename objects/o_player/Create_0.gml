@@ -1,29 +1,18 @@
+event_inherited();
+
 // =====================
 // SPRITES
 // =====================
-sprite_idle = s_player_idle;
-sprite_run	= s_player_run;
-sprite_jump	= s_player_jump;
-
-// =====================
-// MOVEMENT
-// =====================
-hspd		= 0;
-hspd_max	= 500;
-haccel		= 20;
-hdecel		= 50;
-vspd		= 0;
-vspd_max	= 1200;
-grav		= 50;
-jspd		= 25;
+sprite_idle				= s_player_idle;
+sprite_run				= s_player_run;
+sprite_jump				= s_player_jump;
+sprite_shooting_idle	= s_player_shoot_idle;
+sprite_shooting_run		= s_player_shoot_run;
+sprite_shooting_jump	= s_player_shoot_jump;
 
 //troubleshooting
 cur_grav	= 0;
-
-// =====================
-// FLAGS
-// =====================
-on_floor	= true;
+jump_from	= [x,y];
 
 // =====================
 // INPUTS
@@ -32,7 +21,7 @@ k_left		= ord("A");
 k_right		= ord("D");
 k_up		= ord("W");
 k_down		= ord("S");
-k_button_1	= ord("J");
+k_button_1	= vk_space;
 k_button_2	= ord("K");
 k_button_3	= ord("L");
 k_button_4	= ord(";");

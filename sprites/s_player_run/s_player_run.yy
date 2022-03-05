@@ -2,7 +2,7 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 9,
+  "origin": 7,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
@@ -21,7 +21,7 @@
     "path": "texturegroups/Default",
   },
   "swatchColours": null,
-  "gridX": 96,
+  "gridX": 48,
   "gridY": 128,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"fda78c70-09a9-4073-958f-28e8f5b7ec51","path":"sprites/s_player_run/s_player_run.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
@@ -91,7 +91,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 48,
-    "yorigin": 120,
+    "yorigin": 128,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"s_player_run","path":"sprites/s_player_run/s_player_run.yy",},
