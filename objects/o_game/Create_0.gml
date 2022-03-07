@@ -1,3 +1,2 @@
-spawn_timer_max = 8;
-spawn_timer		= spawn_timer_max;
-spawn_timer_inc	= 10;
+global.cam_w	= 1366;
+global.cam_h	= 768;

@@ -24,10 +24,12 @@ switch (state) {
 			attacking = true;
 			shot_timer = shot_timer_max;
 			with (instance_create_layer(x+52*image_xscale,y-72,layer,o_bullet)) {
-				owner = other.id;
-				dir = owner.image_xscale;
-				spd = 1500;
-				dmg = 1;
+				owner	= other.id;
+				target	= owner.target;
+				dir		= owner.image_xscale;
+				spd		= 1500;
+				dmg		= 1;
+				type	= owner.damage_type;
 			}
 		}
 		
@@ -79,7 +81,7 @@ switch (state) {
 // =====================
 // CAMERA
 // =====================
-cam_x	= clamp(x,cam_w/2,room_width-cam_w/2);
+cam_x	= clamp(x,global.cam_w/2,room_width-global.cam_w/2);
 view_mat= matrix_build_lookat(cam_x,cam_y,-1,cam_x,cam_y,0,0,1,0);
 camera_set_view_mat(camera,view_mat);
 camera_apply(camera);
@@ -87,7 +89,6 @@ camera_apply(camera);
 // =====================
 // SRPITES
 // =====================
-
 switch (state) {
 	case a_states.idle : 
 		sprite_index = (attacking) ? sprite_shooting_idle : sprite_idle;

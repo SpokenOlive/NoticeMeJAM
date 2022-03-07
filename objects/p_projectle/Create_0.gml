@@ -3,3 +3,4 @@ spd = 0;
 dmg = 0;
 hit = false;
 owner = noone;
+type = noone;

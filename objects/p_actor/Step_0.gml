@@ -1,4 +1,38 @@
 // =====================
+// STATES
+// =====================
+switch (state) {
+	case a_states.hurt : 		
+		stun_timer -= stun_timer_inc * global.time;
+		if (stun_timer <= 0) {
+			stun_timer	= 0;
+			state		= a_states.idle;
+			knockback	= false;
+		}
+	break;
+	case a_states.melee : 
+		if (!have_shot && image_index >= melee_hit_frame) {
+			have_shot	= true;
+			var list	= ds_list_create();
+			var x1		= x;
+			var y1		= y-melee_height-melee_depth/2;
+			var x2		= x1 + melee_reach*image_xscale;
+			var y2		= y1 + melee_depth;
+			collision_rectangle_list(x1,y1,x2,y2,target,false,false,list,true);
+			if (ds_list_size(list) > 0) {
+				for (var i = 0; i < ds_list_size(list); i++) {
+					var actor = list[| i]
+					if (actor.actor_take_hit(image_xscale*-1,attack_damage,damage_type)) {
+						break;
+					}
+				}
+			}
+			ds_list_destroy(list);
+		}
+	break;
+}
+
+// =====================
 // APPLY MOVEMENT
 // =====================
 vspd += ((vspd < 0) ? grav : grav * 1.5)*global.time;

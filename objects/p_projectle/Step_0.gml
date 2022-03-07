@@ -1,20 +1,23 @@
-if (place_meeting(x,y,o_solid) || hit) {
-	instance_destroy();
-}
-
 var nx = x + (spd * dir * global.time);
 var list = ds_list_create();
 collision_line_list(x,y,nx,y,p_actor,false,false,list,true);
 if (ds_list_size(list) > 0) {
 	for (var i = 0; i < ds_list_size(list); i++) {
-		if (list[| i].id != owner) {
-			list[| i].actor_take_damage(dir*-1,dmg,noone);
-			hit = true;
-			break;
+		var actor = list[| i]
+		if (actor.id != owner && actor.state != a_states.die && actor.state != a_states.dead) {
+			if (actor.actor_take_hit(dir*-1,dmg,type)) {
+				hit = true;
+				break;
+			}
 		}
 	}
 }
 
 ds_list_destroy(list);
 
-x = nx;
+if (!in_cam_view(x,y) || place_meeting(nx,y,o_solid) || hit) {
+	instance_destroy();
+}
+else {
+	x = nx;
+}

@@ -1,13 +1,19 @@
 {
   "spriteId": {
-    "name": "s_enemy_blob_appear",
-    "path": "sprites/s_enemy_blob_appear/s_enemy_blob_appear.yy",
+    "name": "s_enemy_walker_idle",
+    "path": "sprites/s_enemy_walker_idle/s_enemy_walker_idle.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "s_enemy_walker_collision_box",
+    "path": "sprites/s_enemy_walker_collision_box/s_enemy_walker_collision_box.yy",
+  },
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "p_enemy",
+    "path": "objects/p_enemy/p_enemy.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,8 +27,6 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
@@ -32,7 +36,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_enemy_blob_death_chunk",
+  "name": "o_enemy_walker",
   "tags": [],
   "resourceType": "GMObject",
 }

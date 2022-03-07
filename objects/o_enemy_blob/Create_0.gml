@@ -1,8 +1,13 @@
 event_inherited();
 
-e_state = e_states.appear;
-sprite_idle = s_enemy_blob_appear;
-sprite_move = s_enemy_blob_act;
+// ===========================
+// BLOB 
+// ===========================
+ai_type			= ai_types.goomba;
+sprite_idle		= s_enemy_blob_appear;
+sprite_move		= s_enemy_blob_act;
+alert			= true;
+e_state			= e_states.appear;
 
 sprite_index = sprite_idle;
 

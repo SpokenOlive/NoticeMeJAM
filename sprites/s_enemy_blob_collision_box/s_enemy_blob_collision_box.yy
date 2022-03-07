@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "enemies",
-    "path": "folders/Sprites/enemies.yy",
+    "name": "blob",
+    "path": "folders/Sprites/enemies/blob.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_enemy_blob_collision_box",
