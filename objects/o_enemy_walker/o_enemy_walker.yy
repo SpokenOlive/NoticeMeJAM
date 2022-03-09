@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "walker",
+    "path": "folders/Objects/enemy/walker.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_enemy_walker",

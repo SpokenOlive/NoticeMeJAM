@@ -44,7 +44,9 @@ stun_timer_inc	= 10;
 // FLAGS
 // =====================
 on_floor	= true;
+hit_wall	= false;
 attacking	= false;
+grav_exempt	= false;
 
 // =====================
 // FUNCTIONS
@@ -62,12 +64,14 @@ function actor_take_hit(dir,dmg,type) {
 	else {
 		hspd = 0;
 		if (type == damage_types.melee) {
-			vspd		= -800*global.time;
-			hspd		= hspd_max * dir * -1;
 			knockback	= true;
 		}
-		stun_timer = stun_timer_max;
-		state = a_states.hurt;
+		if (knockback) {
+			vspd		= -800*global.time;
+			hspd		= hspd_max * dir * -1;
+			stun_timer = stun_timer_max;
+			state = a_states.hurt;
+		}
 	}
 	return true;
 }

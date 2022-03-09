@@ -40,6 +40,7 @@ enum a_states {
 	idle,
 	moving,
 	melee,
+	launch,
 	jumping,
 	hurt,
 	die,
@@ -55,9 +56,10 @@ enum e_states {
 }
 
 enum ai_types {
-	goomba,
+	blob,
 	brawler,
-	ranger,
+	spitter,
+	flyer,
 }
 
 enum damage_types {
@@ -69,16 +71,27 @@ enum damage_types {
 // ===========================
 // AI CONTROLLERS
 // ===========================
-// GOOMBA
-function goomba_controller() {
+// BLOB
+function blob_controller() {
+	life_timer	-= life_timer_inc * global.time;
+	if (life_timer <= 0) {
+		e_state			= e_states.vanish;
+		sprite_index	= sprite_vanish;
+	}
+	
 	switch (e_state) {
 		case e_states.approach :
-			if (hspd == 0) {
+			if (hit_wall) {
 				move_dir *= -1;
 			}
 			image_xscale	= move_dir;
 			sprite_index	= sprite_move;
 			hspd			= hspd_max * move_dir * global.time;
+		break;
+		case e_states.vanish :
+			if (image_index >= image_number-.5) {
+				instance_destroy();
+			}
 		break;
 	}
 		
@@ -103,7 +116,7 @@ function brawler_controller() {
 		case e_states.approach :
 		case e_states.retreat :
 			sprite_index	= sprite_move;
-			image_xscale	= direction_to_player;
+			image_xscale	= face_dir;
 			move_dir		= (e_state == e_states.approach)? image_xscale : image_xscale * -1;
 			hspd			= hspd_max * move_dir * global.time;
 			
@@ -113,6 +126,71 @@ function brawler_controller() {
 				sprite_index	= sprite_melee;
 				state			= a_states.melee;
 				attack_timer	= attack_timer_max;
+			}
+		break;
+	}
+}
+
+// BRAWLER
+function spitter_controller() {
+	if (attack_timer > 0) {
+		attack_timer	= max(attack_timer - attack_timer_inc * global.time,0);
+		sprite_index	= sprite_move;
+		e_state			= e_states.wait;
+	}
+	else {
+		e_state = e_states.approach;
+	}
+	
+	switch (e_state) {
+		case e_states.approach :
+		case e_states.retreat :
+			sprite_index	= sprite_move;
+			image_xscale	= face_dir;
+			move_dir		= (e_state == e_states.approach)? image_xscale : image_xscale * -1;
+			hspd			= hspd_max * move_dir * global.time;
+			
+			if (in_cam_view(x,y) && attack_timer == 0) {
+				hspd			= 0;
+				image_index		= 0;
+				sprite_index	= sprite_shoot;
+				shot_dir		= (image_xscale > 0) ? 0 : 180;
+				state			= a_states.launch;
+				attack_timer	= attack_timer_max;
+			}
+		break;
+	}
+}
+
+// FLYER
+function flyer_controller() {
+	e_state	= e_states.approach;
+	switch (e_state) {
+		case e_states.approach :
+			if (attack_timer > 0) {
+				attack_timer	= max(attack_timer - attack_timer_inc * global.time,0);
+			}
+			
+			move_dir		= face_dir;
+			image_xscale	= move_dir;
+			sprite_index	= sprite_move;
+			var faccel		= haccel;
+			if (image_xscale != sign(hspd)) {
+				faccel *= .5;
+			}
+			hspd			+= faccel * move_dir * global.time;
+			
+			if (in_cam_view(x,y) && attack_timer == 0) {
+				if (shot_count < shot_count_max) {
+					state			= a_states.launch;
+					shot_dir		= direction_to_player;
+					attack_timer	= attack_timer_max/10;;
+					shot_count++;
+				}
+				else {
+					shot_count = 0;
+					attack_timer	= attack_timer_max;
+				}
 			}
 		break;
 	}

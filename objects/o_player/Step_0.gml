@@ -13,24 +13,47 @@ k_button_4	= ord(";");
 // INPUTS AND ACTIONS
 // =====================
 var xaxis	= keyboard_check(k_right) - keyboard_check(k_left);
+var up		= keyboard_check(k_up);
+var down	= keyboard_check(k_down);
 var jump	= keyboard_check_pressed(k_button_1);
 var shoot	= keyboard_check_pressed(k_button_2);
+var anim_array_index = 0;
 
 switch (state) {
 	case a_states.idle : 
 	case a_states.moving : 
-	case a_states.jumping : 		
-		if (shoot && (!attacking || shot_timer < shot_timer_max*.75)) {
+	case a_states.jumping : 
+		if (shoot && floor(magazine_cur) > 0 && (!attacking || shot_timer < shot_timer_max*.75)) {
+			magazine_cur -= 1;
+			var shot_origin = [x+52*image_xscale,y-72];
+			var shot_dir	= 0;
+			if (up) {
+				shot_origin = [x+10*image_xscale,y-sprite_height];
+				shot_dir	= 90;
+			} 
+			else if (down) {
+				shot_origin = [x+10*image_xscale,bbox_bottom];
+				shot_dir	= 270;
+			}
+			else {
+				if (image_xscale < 0) {
+					shot_dir = 180;
+				}
+			}
 			attacking = true;
 			shot_timer = shot_timer_max;
-			with (instance_create_layer(x+52*image_xscale,y-72,layer,o_bullet)) {
+			with (instance_create_layer(shot_origin[0],shot_origin[1],layer,o_bullet)) {
 				owner	= other.id;
 				target	= owner.target;
-				dir		= owner.image_xscale;
+				dir		= shot_dir;
 				spd		= 1500;
 				dmg		= 1;
 				type	= owner.damage_type;
 			}
+		}
+		
+		if (magazine_cur < magazine_max) {
+			magazine_cur = min(magazine_cur + magazine_inc * global.time, magazine_max);
 		}
 		
 		if (xaxis != 0) {
@@ -89,15 +112,27 @@ camera_apply(camera);
 // =====================
 // SRPITES
 // =====================
+if (attacking) {
+	if (up) {
+		anim_array_index = 2;
+	} 
+	else if (down) {
+		anim_array_index = 3;
+	} 
+	else {
+		anim_array_index = 1;
+	}
+}
+
 switch (state) {
 	case a_states.idle : 
-		sprite_index = (attacking) ? sprite_shooting_idle : sprite_idle;
+		sprite_index = sprite_idle[anim_array_index];// (attacking) ? sprite_shooting_idle : sprite_idle;
 	break;
 	case a_states.moving : 
-		sprite_index = (attacking) ? sprite_shooting_run : sprite_run;
+		sprite_index = sprite_run[anim_array_index];// (attacking) ? sprite_shooting_run : sprite_run;
 	break;
 	case a_states.jumping : 
-		sprite_index = (attacking) ? sprite_shooting_jump : sprite_jump;
+		sprite_index = sprite_jump[anim_array_index];// (attacking) ? sprite_shooting_jump : sprite_jump;
 		if (vspd < 0) {
 			image_index = 0;
 		}

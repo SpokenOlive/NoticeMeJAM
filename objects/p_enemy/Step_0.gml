@@ -4,20 +4,24 @@
 
 if (instance_exists(o_player)) {
 	distance_to_player	= abs(o_player.x - x);
-	direction_to_player	= sign(o_player.x - x);
+	direction_to_player	= point_direction(x,y,o_player.x,o_player.y);
 }
 else {
 	distance_to_player	= -1;
 	direction_to_player	= 0;
 }
 
+face_dir = (direction_to_player >= 90 && direction_to_player <= 270) ? -1 : 1;
+
 switch (state) {
 	case a_states.idle : 
 	case a_states.moving : 
 		if (alert) {
 			switch (ai_type) {
-				case ai_types.goomba: goomba_controller(); break;
+				case ai_types.blob: blob_controller(); break;
 				case ai_types.brawler: brawler_controller(); break;
+				case ai_types.spitter: spitter_controller(); break;
+				case ai_types.flyer: flyer_controller(); break;
 			}
 		}
 		else {
@@ -29,21 +33,10 @@ switch (state) {
 	break;
 	case a_states.die :
 		hspd	= 0;
-		//for (var i = -1; i <= 1; i++) {
-		//	if (i == 0) {
-		//		continue;
-		//	}
-			
-		//	with (instance_create_layer(x,y,layer,o_enemy_death_chunk)) {
-		//		dir		= sign(i);
-		//		xspd	= choose(100,200,300) * random_range(.2,.6);
-		//		yspd	= choose(300,600) * random_range(.2,.6) * -1;
-		//	}
-		//}
 		instance_create_layer(x,y-sprite_get_height(mask_index)/2,layer,o_enemy_death_blurb);
 		state	= a_states.dead;
 	break;
-	case a_states.dead:
+	case a_states.dead :
 		instance_destroy();
 	break;
 }

@@ -30,15 +30,32 @@ switch (state) {
 			ds_list_destroy(list);
 		}
 	break;
+	case a_states.launch :
+		if (!have_shot && image_index >= launch_frame) {
+			have_shot	= true;
+			with (instance_create_layer(x+52*image_xscale,y-72,layer,projectile)) {
+				owner	= other.id;
+				target	= owner.target;
+				dir		= other.shot_dir;
+				spd		= other.shot_spd;
+				dmg		= 1;
+				type	= owner.damage_type;
+			}
+		}
+	break;
 }
 
 // =====================
 // APPLY MOVEMENT
 // =====================
-vspd += ((vspd < 0) ? grav : grav * 1.5)*global.time;
+if (!grav_exempt) {
+	vspd += ((vspd < 0) ? grav : grav * 1.5)*global.time;
+}
 
 hspd = clamp(hspd, -hspd_max*global.time, hspd_max*global.time);
 vspd = clamp(vspd, -vspd_max*global.time, vspd_max*global.time);
+
+hit_wall = false;
 
 if (place_meeting(x+hspd,y,o_solid)) {
 	var inc = sign(hspd);
@@ -46,6 +63,7 @@ if (place_meeting(x+hspd,y,o_solid)) {
 		x += inc;
 	}
 	hspd = 0;
+	hit_wall = true;
 }
 x += hspd;
 
@@ -56,7 +74,6 @@ if (place_meeting(x,y+vspd,o_solid)) {
 	}
 	vspd = 0;
 }
-
 y += vspd;
 
 on_floor = place_meeting(x,y+1,o_solid);

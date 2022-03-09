@@ -3,12 +3,9 @@ event_inherited();
 // =====================
 // SPRITES
 // =====================
-sprite_idle				= s_player_idle;
-sprite_run				= s_player_run;
-sprite_jump				= s_player_jump;
-sprite_shooting_idle	= s_player_shoot_idle;
-sprite_shooting_run		= s_player_shoot_run;
-sprite_shooting_jump	= s_player_shoot_jump;
+sprite_idle				= [s_player_idle,s_player_idle_shoot_forward,s_player_idle_shoot_up,s_player_idle_shoot_down];
+sprite_run				= [s_player_run,s_player_run_shoot_forward,s_player_run_shoot_up,s_player_run_shoot_down];
+sprite_jump				= [s_player_jump,s_player_jump_shoot_forward,s_player_jump_shoot_up,s_player_jump_shoot_down];
 
 // =====================
 // PLAYER VARIABLES
@@ -17,9 +14,13 @@ jump_from	= [x,y];
 death_timer = 2;
 target		= p_enemy;
 damage_type	= damage_types.energy;
+stun_timer_max	= 2;
+magazine_max	= 8;
+magazine_cur	= magazine_max;
+magazine_inc	= 2;
 
 //troubleshooting
-cur_grav	= 0;
+//cur_grav	= 0;
 
 // =====================
 // INPUTS
