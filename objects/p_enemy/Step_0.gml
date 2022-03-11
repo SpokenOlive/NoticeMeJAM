@@ -34,6 +34,10 @@ switch (state) {
 	case a_states.die :
 		hspd	= 0;
 		instance_create_layer(x,y-sprite_get_height(mask_index)/2,layer,o_enemy_death_blurb);
+		var drop = drops[irandom(array_length(drops)-1)];
+		if (drop != noone) {
+			instance_create_layer(x,y-sprite_get_height(mask_index)/2,layer,drop);
+		}
 		state	= a_states.dead;
 	break;
 	case a_states.dead :

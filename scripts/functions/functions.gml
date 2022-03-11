@@ -20,14 +20,11 @@ function value_approach(value,target,inc) {
 }
 
 function in_cam_view(x,y) {
-	if (!instance_exists(o_player)) {
-		return false;
-	}
 	return point_in_rectangle(x,y
-				,o_player.cam_x-global.cam_w/2
-				,o_player.cam_y-global.cam_h/2
-				,o_player.cam_x+global.cam_w/2
-				,o_player.cam_y+global.cam_h/2
+				,global.cam_x-global.cam_w/2
+				,global.cam_y-global.cam_h/2
+				,global.cam_x+global.cam_w/2
+				,global.cam_y+global.cam_h/2
 				);
 }
 

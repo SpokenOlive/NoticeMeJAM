@@ -21,6 +21,7 @@ magazine_inc	= 2;
 
 //troubleshooting
 //cur_grav	= 0;
+scrap		= 0;
 
 // =====================
 // INPUTS
@@ -44,9 +45,9 @@ function setup_camera() {
 	}
 
 	camera	= view_camera[0];
-	cam_x	= x;
-	cam_y	= global.cam_h/2;
-	view_mat= matrix_build_lookat(cam_x,cam_y,-1,cam_x,cam_y,0,0,1,0);
+	global.cam_x	= x;
+	global.cam_y	= global.cam_h/2;
+	view_mat= matrix_build_lookat(global.cam_x,global.cam_y,-1,global.cam_x,global.cam_y,0,0,1,0);
 	proj_mat= matrix_build_projection_ortho(global.cam_w,global.cam_h,1.0,32000.0);
 	camera_set_view_mat(camera,view_mat);
 	camera_set_proj_mat(camera,proj_mat);

@@ -16,14 +16,18 @@ projectile		= o_enemy_spitter_glob;
 shot_dir		= 0;
 shot_spd		= 500;
 
+drops			= [o_scrap_smol,o_scrap_mid,o_scrap_mid,noone];
+
 // =====================
 // STATS
 // =====================
-hp_max = 5;
-hp_cur = hp_max;
+hp_max			= 5;
+hp_cur			= hp_max;
 
 // =====================
 // MOVEMENT
 // =====================
 move_dir	= 0;
-hspd_max	= 75;
+hspd_max_day	= 75;
+hspd_max_night	= hspd_max_day*1.5;
+hspd_max		= hspd_max_day;

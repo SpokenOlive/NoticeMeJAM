@@ -104,8 +104,8 @@ switch (state) {
 // =====================
 // CAMERA
 // =====================
-cam_x	= clamp(x,global.cam_w/2,room_width-global.cam_w/2);
-view_mat= matrix_build_lookat(cam_x,cam_y,-1,cam_x,cam_y,0,0,1,0);
+global.cam_x	= clamp(x,global.cam_w/2,room_width-global.cam_w/2);
+view_mat= matrix_build_lookat(global.cam_x,global.cam_y,-1,global.cam_x,global.cam_y,0,0,1,0);
 camera_set_view_mat(camera,view_mat);
 camera_apply(camera);
 

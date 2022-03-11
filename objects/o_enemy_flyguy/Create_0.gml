@@ -22,15 +22,18 @@ grav_exempt		= true;
 shot_count_max	= 3;
 shot_count		= 0;
 
+drops			= [o_scrap_smol,o_scrap_mid,noone];
 
 // =====================
 // STATS
 // =====================
-hp_max = 3;
-hp_cur = hp_max;
+hp_max			= 3;
+hp_cur			= hp_max;
 
 // =====================
 // MOVEMENT
 // =====================
-move_dir	= 0;
-hspd_max	= 500;
+move_dir		= 0;
+hspd_max_day	= 500;
+hspd_max_night	= hspd_max_day*1.5;
+hspd_max		= hspd_max_day;
