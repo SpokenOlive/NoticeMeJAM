@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "pickups",
+    "path": "folders/Objects/pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "p_pickup",

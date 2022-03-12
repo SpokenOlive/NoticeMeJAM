@@ -15,12 +15,3 @@ target				= o_player;
 attack_timer_max	= 1;
 attack_timer_inc	= 1;
 attack_timer		= 0;
-
-function set_night_stats() {
-	if (global.tod == 1) {
-		hspd_max = hspd_max_night;
-	}
-	else {
-		hspd_max = hspd_max_day;
-	}
-}

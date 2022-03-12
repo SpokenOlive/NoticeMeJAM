@@ -88,6 +88,9 @@ switch (state) {
 			state = a_states.moving;
 		}
 	break;
+	case a_states.hurt :
+		invulnerable = true;
+	break;
 	case a_states.die :
 		hspd	= 0;
 		state	= a_states.dead;
@@ -99,6 +102,14 @@ switch (state) {
 			game_restart();
 		}
 	break;
+}
+
+if (x + hspd < 0) {
+	hspd = 0;
+}
+
+if (x+hspd >= room_width) {
+	room_restart();
 }
 
 // =====================

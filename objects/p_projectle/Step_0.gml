@@ -1,3 +1,7 @@
+if (global.pause) {
+	exit;
+}
+
 var fs = (spd * global.time);
 var nx = x + lengthdir_x(fs,dir);
 var ny = y + lengthdir_y(fs,dir);

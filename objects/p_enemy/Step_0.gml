@@ -1,7 +1,6 @@
 // ===========================
 // P_ENEMY
 // ===========================
-
 if (instance_exists(o_player)) {
 	distance_to_player	= abs(o_player.x - x);
 	direction_to_player	= point_direction(x,y,o_player.x,o_player.y);

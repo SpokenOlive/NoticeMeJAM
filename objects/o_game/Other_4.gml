@@ -3,6 +3,14 @@ if (room == rm_title) {
 	exit;
 }
 
-with (p_enemy) {
-	set_night_stats();
+if (!instance_exists(o_player)) {
+	instance_create_layer(x,y,"player",o_player);		
+}
+
+if (instance_exists(o_player_spawn)) {
+	with (o_player_spawn) {
+		o_player.x = x;
+		o_player.y = y;
+		instance_destroy();
+	}
 }

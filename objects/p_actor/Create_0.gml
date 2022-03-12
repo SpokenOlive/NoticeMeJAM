@@ -47,6 +47,7 @@ on_floor	= true;
 hit_wall	= false;
 attacking	= false;
 grav_exempt	= false;
+invulnerable= false;
 
 // =====================
 // FUNCTIONS

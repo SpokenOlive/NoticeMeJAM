@@ -21,7 +21,9 @@ magazine_inc	= 2;
 
 //troubleshooting
 //cur_grav	= 0;
-scrap		= 0;
+scrap			= 0;
+invul_timer		= 1;
+invul_timer_max	= 5;
 
 // =====================
 // INPUTS

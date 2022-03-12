@@ -16,7 +16,9 @@ alert_distance	= global.cam_w*2;
 launch_frame	= 0;
 projectile		= o_enemy_flyguy_shot;
 shot_dir		= 0;
-shot_spd		= 325;
+shot_spd_day	= 325;
+shot_spd_night	= 400;
+shot_spd		= shot_spd_day;
 grav_exempt		= true;
 
 shot_count_max	= 3;

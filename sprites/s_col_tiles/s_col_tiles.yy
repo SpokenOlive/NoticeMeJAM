@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "pickups",
+    "path": "folders/Sprites/pickups.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_col_tiles",

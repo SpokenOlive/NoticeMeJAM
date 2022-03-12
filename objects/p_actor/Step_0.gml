@@ -1,6 +1,10 @@
 // =====================
 // STATES
 // =====================
+if (global.pause) {
+	exit;
+}
+
 switch (state) {
 	case a_states.hurt : 		
 		stun_timer -= stun_timer_inc * global.time;

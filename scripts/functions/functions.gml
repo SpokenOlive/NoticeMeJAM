@@ -70,10 +70,12 @@ enum damage_types {
 // ===========================
 // BLOB
 function blob_controller() {
-	life_timer	-= life_timer_inc * global.time;
-	if (life_timer <= 0) {
-		e_state			= e_states.vanish;
-		sprite_index	= sprite_vanish;
+	if (!global.pause) {
+		life_timer	-= life_timer_inc * global.time;
+		if (life_timer <= 0) {
+			e_state			= e_states.vanish;
+			sprite_index	= sprite_vanish;
+		}
 	}
 	
 	switch (e_state) {

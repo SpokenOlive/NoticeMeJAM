@@ -29,5 +29,3 @@ hp_cur			= hp_max;
 hspd_max_day	= 250;
 hspd_max_night	= hspd_max_day*2;
 hspd_max		= hspd_max_day;
-
-set_night_stats();
