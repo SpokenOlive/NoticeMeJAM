@@ -3,7 +3,7 @@ event_inherited();
 // =====================
 // PLAYER FUNCTIONS
 // =====================
-#region 
+#region
 	function checkpoint() {
 		x = cur_checkpoint.x;
 		y = cur_checkpoint.y;
@@ -41,7 +41,7 @@ event_inherited();
 		camera_set_proj_mat(camera,proj_mat);
 		camera_apply(camera);
 	}
-#endregion 
+#endregion
 
 // =====================
 // SPRITES
