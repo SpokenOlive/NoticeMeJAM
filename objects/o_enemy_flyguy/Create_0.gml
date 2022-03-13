@@ -19,7 +19,7 @@ shot_dir		= 0;
 shot_spd_day	= 325;
 shot_spd_night	= 400;
 shot_spd		= shot_spd_day;
-grav_exempt		= true;
+gravity_exempt		= true;
 
 shot_count_max	= 3;
 shot_count		= 0;

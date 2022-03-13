@@ -17,14 +17,53 @@ var up		= keyboard_check(k_up);
 var down	= keyboard_check(k_down);
 var jump	= keyboard_check_pressed(k_button_1);
 var shoot	= keyboard_check_pressed(k_button_2);
+var use     = keyboard_check_pressed(k_button_3);
 var anim_array_index = 0;
+
+if (upgrading) {
+	var yaxis = keyboard_check_pressed(k_down) - keyboard_check_pressed(k_up);
+	if (yaxis != 0) {
+		menu_index = value_wrap(menu_index+yaxis,0,array_length(stats)+1);
+	}
+	
+	if (menu_index < array_length(stats)) {
+		var stat = stats[menu_index];
+		if (shoot && scrap >= stat.cost && stat.lvl < stat.mx) {
+			scrap -= stat.cost;
+			stat.lvl += 1;
+			adjust_stats();
+		}
+	}
+	else if (shoot) {
+		switch (menu_index) {
+			case 4 : 
+				o_game.advance_day();
+			break;
+			case 5 : 
+				global.pause = false;
+				upgrading = false;
+			break;
+		}
+	}
+}
 
 switch (state) {
 	case a_states.idle : 
 	case a_states.moving : 
 	case a_states.jumping : 
-		if (shoot && floor(magazine_cur) > 0 && (!attacking || shot_timer < shot_timer_max*.75)) {
-			magazine_cur -= 1;
+		if (global.pause) {
+			break;
+		}
+		
+		if (use) {
+			if (place_meeting(x,y,o_cave)) {
+				global.pause	= true;
+				upgrading		= true;
+			}
+		}
+		
+		if (shoot && floor(blaster_charge_cur) > 0 && (!attacking || shot_timer < shot_timer_max*.75)) {
+			blaster_charge_cur -= 1;
 			var shot_origin = [x+52*image_xscale,y-72];
 			var shot_dir	= 0;
 			if (up) {
@@ -47,13 +86,13 @@ switch (state) {
 				target	= owner.target;
 				dir		= shot_dir;
 				spd		= 1500;
-				dmg		= 1;
+				dmg		= owner.damage;
 				type	= owner.damage_type;
 			}
 		}
 		
-		if (magazine_cur < magazine_max) {
-			magazine_cur = min(magazine_cur + magazine_inc * global.time, magazine_max);
+		if (blaster_charge_cur < blaster_charge_max) {
+			blaster_charge_cur = min(blaster_charge_cur + blaster_charge_inc * global.time, blaster_charge_max);
 		}
 		
 		if (xaxis != 0) {
@@ -96,7 +135,7 @@ switch (state) {
 		state	= a_states.dead;
 	break;
 	case a_states.dead:
-		image_alpha = 0;
+		sprite_index = s_player_collision_box;
 		death_timer -= global.time;
 		if (death_timer <= 0) {
 			game_restart();
@@ -169,6 +208,6 @@ event_inherited();
 // TROUBLESHOOTING
 // =====================
 if (y > room_height + BLOCKSIZE*2) {
-	x = jump_from[0];
-	y = jump_from[1]-8;
+	actor_take_hit(0,1,noone);
+	checkpoint();
 }

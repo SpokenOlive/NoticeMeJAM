@@ -44,4 +44,15 @@ switch (state) {
 	break;
 }
 
+// don't walk off edges
+if (edge_aware && !gravity_exempt) {
+	var inc = sign(hspd);
+	if (!place_meeting(x+(BLOCKSIZE*inc)+hspd,y+BLOCKSIZE/2,o_solid)) {
+		while (place_meeting(x+(BLOCKSIZE*inc)+inc,y+BLOCKSIZE/2,o_solid)) {
+			x += inc;
+		}
+		hspd = 0;
+	}
+}
+
 event_inherited();

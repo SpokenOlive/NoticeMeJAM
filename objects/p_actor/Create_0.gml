@@ -46,14 +46,14 @@ stun_timer_inc	= 10;
 on_floor	= true;
 hit_wall	= false;
 attacking	= false;
-grav_exempt	= false;
+gravity_exempt	= false;
 invulnerable= false;
 
 // =====================
 // FUNCTIONS
 // =====================
 function actor_take_hit(dir,dmg,type) {
-	if (state == a_states.die || state == a_states.dead) {
+	if (invulnerable || state == a_states.die || state == a_states.dead) {
 		return false;
 	}
 	

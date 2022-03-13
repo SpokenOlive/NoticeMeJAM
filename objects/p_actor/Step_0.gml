@@ -52,7 +52,7 @@ switch (state) {
 // =====================
 // APPLY MOVEMENT
 // =====================
-if (!grav_exempt) {
+if (!gravity_exempt) {
 	vspd += ((vspd < 0) ? grav : grav * 1.5)*global.time;
 }
 

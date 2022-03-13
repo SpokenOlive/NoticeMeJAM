@@ -15,3 +15,4 @@ target				= o_player;
 attack_timer_max	= 1;
 attack_timer_inc	= 1;
 attack_timer		= 0;
+edge_aware			= true;

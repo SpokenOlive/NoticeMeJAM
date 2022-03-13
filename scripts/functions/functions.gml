@@ -19,6 +19,16 @@ function value_approach(value,target,inc) {
 	return value;
 }
 
+function value_wrap(val,mn,mx) {
+	if (val < mn) {
+		return mx;
+	}
+	else if (val > mx) {
+		return mn;
+	}
+	return val;
+}
+
 function in_cam_view(x,y) {
 	return point_in_rectangle(x,y
 				,global.cam_x-global.cam_w/2

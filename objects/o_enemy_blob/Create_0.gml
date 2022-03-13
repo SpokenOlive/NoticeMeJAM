@@ -9,6 +9,7 @@ sprite_vanish	= s_enemy_blob_vanish;
 sprite_move		= s_enemy_blob_act;
 alert			= true;
 e_state			= e_states.appear;
+edge_aware		= false;
 
 life_timer		= 8;
 life_timer_inc	= 1;
