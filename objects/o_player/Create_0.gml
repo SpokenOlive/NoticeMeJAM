@@ -53,13 +53,6 @@ sprite_jump				= [s_playerRed_jump,	s_playerRed_jump_shoot_forward,s_playerRed_j
 // =====================
 // STATS
 // =====================
-enum pStat {
-	hp,
-	energy,
-	recharge,
-	dmg,
-}
-
 stats[pStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
 stats[pStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
 stats[pStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
