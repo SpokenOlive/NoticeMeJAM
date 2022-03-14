@@ -1,5 +1,11 @@
 global.time = delta_time/1000000;
 
+if (room == rm_title) {
+	
+	exit;
+}
+
+
 tod_switch();
 
 if (instance_exists(o_player)) {	

@@ -59,7 +59,7 @@
     "spriteId": {"name":"s_player_run_shoot_up","path":"sprites/s_player_run_shoot_up/s_player_run_shoot_up.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 12.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
