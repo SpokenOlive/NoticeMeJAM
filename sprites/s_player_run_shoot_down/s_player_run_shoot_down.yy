@@ -59,7 +59,7 @@
     "spriteId": {"name":"s_player_run_shoot_down","path":"sprites/s_player_run_shoot_down/s_player_run_shoot_down.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 12.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

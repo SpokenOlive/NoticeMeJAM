@@ -46,9 +46,9 @@ event_inherited();
 // =====================
 // SPRITES
 // =====================
-sprite_idle				= [s_player_idle,s_player_idle_shoot_forward,s_player_idle_shoot_up,s_player_idle_shoot_down];
-sprite_run				= [s_player_run,s_player_run_shoot_forward,s_player_run_shoot_up,s_player_run_shoot_down];
-sprite_jump				= [s_player_jump,s_player_jump_shoot_forward,s_player_jump_shoot_up,s_player_jump_shoot_down];
+sprite_idle				= [s_playerRed_idle,	s_playerRed_idle_shoot_forward,s_playerRed_idle_shoot_up,s_playerRed_idle_shoot_down];
+sprite_run				= [s_playerRed_run,		s_playerRed_run_shoot_forward,s_playerRed_run_shoot_up,s_playerRed_run_shoot_down];
+sprite_jump				= [s_playerRed_jump,	s_playerRed_jump_shoot_forward,s_playerRed_jump_shoot_up,s_playerRed_jump_shoot_down];
 
 // =====================
 // STATS
