@@ -53,16 +53,11 @@ sprite_jump				= [s_player_jump,s_player_jump_shoot_forward,s_player_jump_shoot_
 // =====================
 // STATS
 // =====================
-enum eStat {
-	hp,
-	energy,
-	recharge,
-	dmg,
-}
-stats[eStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
+
 upgrading				= false;
 menu_index				= 0;
 

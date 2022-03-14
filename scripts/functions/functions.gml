@@ -74,6 +74,13 @@ enum damage_types {
 	melee,
 }
 
+enum pStat {
+	hp,
+	energy,
+	recharge,
+	dmg,
+}
+
 
 // ===========================
 // AI CONTROLLERS
