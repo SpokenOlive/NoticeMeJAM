@@ -10,10 +10,10 @@ event_inherited();
 	}
 
 	function adjust_stats() {
-		hp_max				= stats[eStat.hp].base			+ max(stats[eStat.hp].lvl-1,0);
-		blaster_charge_inc	= stats[eStat.recharge].base	+ max(stats[eStat.recharge].lvl/4-1,0);
-		blaster_charge_max	= stats[eStat.energy].base		+ max(stats[eStat.energy].lvl/4-1,0);
-		damage				= stats[eStat.dmg].base			+ (stats[eStat.dmg].lvl-1);
+		hp_max				= stats[pStat.hp].base			+ max(stats[pStat.hp].lvl-1,0);
+		blaster_charge_inc	= stats[pStat.recharge].base	+ max(stats[pStat.recharge].lvl/4-1,0);
+		blaster_charge_max	= stats[pStat.energy].base		+ max(stats[pStat.energy].lvl/4-1,0);
+		damage				= stats[pStat.dmg].base			+ (stats[pStat.dmg].lvl-1);
 	}
 
 	function draw_gui_bar(sprite,xx,yy,cur,mx,offset) {
@@ -53,16 +53,17 @@ sprite_jump				= [s_player_jump,s_player_jump_shoot_forward,s_player_jump_shoot_
 // =====================
 // STATS
 // =====================
-enum eStat {
+enum pStat {
 	hp,
 	energy,
 	recharge,
 	dmg,
 }
-stats[eStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
-stats[eStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
+
+stats[pStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
+stats[pStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
 upgrading				= false;
 menu_index				= 0;
 
