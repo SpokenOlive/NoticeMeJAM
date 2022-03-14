@@ -32,6 +32,7 @@
     {"id":{"name":"o_enemy_blob","path":"objects/o_enemy_blob/o_enemy_blob.yy",},"order":1,},
     {"id":{"name":"s_spitter","path":"sprites/s_spitter/s_spitter.yy",},"order":0,},
     {"id":{"name":"s_scrap_beeg","path":"sprites/s_scrap_beeg/s_scrap_beeg.yy",},"order":3,},
+    {"id":{"name":"o_block","path":"objects/o_block/o_block.yy",},"order":1,},
     {"id":{"name":"s_slimey_death_blurp","path":"sprites/s_slimey_death_blurp/s_slimey_death_blurp.yy",},"order":3,},
     {"id":{"name":"s_break_block","path":"sprites/s_break_block/s_break_block.yy",},"order":26,},
     {"id":{"name":"o_blob_spawner","path":"objects/o_blob_spawner/o_blob_spawner.yy",},"order":0,},

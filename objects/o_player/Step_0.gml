@@ -84,6 +84,7 @@ switch (state) {
 			with (instance_create_layer(shot_origin[0],shot_origin[1],layer,o_bullet)) {
 				owner	= other.id;
 				target	= owner.target;
+				LOG("Target " + string(object_get_name(target)));
 				dir		= shot_dir;
 				spd		= 1500;
 				dmg		= owner.damage;

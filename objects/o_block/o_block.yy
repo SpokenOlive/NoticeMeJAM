@@ -1,12 +1,15 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "s_break_block",
+    "path": "sprites/s_break_block/s_break_block.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "p_enemy",
-    "path": "objects/p_enemy/p_enemy.yy",
+    "name": "p_destructable",
+    "path": "objects/p_destructable/p_destructable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -20,11 +23,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -32,7 +31,7 @@
     "path": "folders/Objects/environments.yy",
   },
   "resourceVersion": "1.0",
-  "name": "p_destructable",
+  "name": "o_block",
   "tags": [],
   "resourceType": "GMObject",
 }
