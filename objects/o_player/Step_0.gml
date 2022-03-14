@@ -64,7 +64,7 @@ switch (state) {
 		
 		if (shoot && floor(blaster_charge_cur) > 0 && (!attacking || shot_timer < shot_timer_max*.75)) {
 			blaster_charge_cur -= 1;
-			var shot_origin = [x+52*image_xscale,y-72];
+			var shot_origin = [x + 64 * image_xscale,y-72];
 			var shot_dir	= 0;
 			if (up) {
 				shot_origin = [x+10*image_xscale,y-sprite_height];
