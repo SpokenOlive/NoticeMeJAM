@@ -58,6 +58,7 @@
     {"id":{"name":"s_health_block","path":"sprites/s_health_block/s_health_block.yy",},"order":3,},
     {"id":{"name":"rm_test_level","path":"rooms/rm_test_level/rm_test_level.yy",},"order":2,},
     {"id":{"name":"o_cave","path":"objects/o_cave/o_cave.yy",},"order":22,},
+    {"id":{"name":"s_playerRed","path":"sprites/s_playerRed/s_playerRed.yy",},"order":26,},
     {"id":{"name":"s_enemy_blob_act","path":"sprites/s_enemy_blob_act/s_enemy_blob_act.yy",},"order":0,},
     {"id":{"name":"s_enemy_walker_melee","path":"sprites/s_enemy_walker_melee/s_enemy_walker_melee.yy",},"order":0,},
     {"id":{"name":"o_upgrade_screen","path":"objects/o_upgrade_screen/o_upgrade_screen.yy",},"order":20,},
