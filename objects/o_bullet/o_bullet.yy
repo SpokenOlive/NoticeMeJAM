@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_pistol_bullet",
-    "path": "sprites/s_pistol_bullet/s_pistol_bullet.yy",
+    "name": "s_playerRed_bullet",
+    "path": "sprites/s_playerRed_bullet/s_playerRed_bullet.yy",
   },
   "solid": false,
   "visible": true,

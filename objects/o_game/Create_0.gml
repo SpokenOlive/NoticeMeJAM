@@ -3,13 +3,13 @@ global.cam_h		= 768;
 global.cam_x		= 0;
 global.cam_y		= 0;
 
-background_colors[0] = c_red;//make_color_rgb(237,210,245);
-background_colors[1] = c_yellow;//make_color_rgb(41,173,229);
-background_colors[2] = c_orange;//make_color_rgb(178,43,115);
-background_colors[3] = c_black;//make_color_rgb(32,76,43);
+background_colors[0] = c_yellow;
+background_colors[1] = c_aqua;
+background_colors[2] = c_red;
+background_colors[3] = c_black;
 
 day_count		= 1;
-day_length		= 120;
+day_length		= 300;
 night_length	= 30;
 tod				= 0;
 tod_timer		= day_length;

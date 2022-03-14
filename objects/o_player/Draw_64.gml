@@ -26,10 +26,10 @@ if (global.pause) {
 			var stat = stats[col];
 			var txt		= " ";
 			switch (col) {
-				case eStat.hp :			txt += string(hp_max);				break;
-				case eStat.energy :		txt += string(blaster_charge_max);	break;
-				case eStat.recharge :	txt += string(blaster_charge_inc);	break;
-				case eStat.dmg :		txt += string(damage);				break;
+				case pStat.hp :			txt += string(hp_max);				break;
+				case pStat.energy :		txt += string(blaster_charge_max);	break;
+				case pStat.recharge :	txt += string(blaster_charge_inc);	break;
+				case pStat.dmg :		txt += string(damage);				break;
 			}
 			draw_text(x1,y1+yoff+BLOCKSIZE/2-4,string(stat.name) + string(txt));
 			draw_text(x1+(BLOCKSIZE*10)-(string_length(stat.cost)-1)*BLOCKSIZE,y1+yoff+BLOCKSIZE/2-4,stat.cost);
@@ -92,7 +92,7 @@ var HUDy2 = HUDy1+BLOCKSIZE*2;
 draw_rectangle_color(HUDx1,HUDy1,HUDx2,HUDy2,c_black,c_black,c_black,c_black,false);
 draw_gui_bar(s_health_block,HUDx1+BLOCKSIZE,HUDy1+BLOCKSIZE/2,hp_cur,hp_max,BLOCKSIZE);
 
-var bar_max		= stats[eStat.energy].base*40;
+var bar_max		= stats[pStat.energy].base*40;
 var bar_cur		= bar_max*(blaster_charge_cur/blaster_charge_max);
 var HUDxx1		= display_get_gui_width()/2 - (bar_max/2);
 draw_rectangle_color(HUDxx1,HUDy1+BLOCKSIZE/2,HUDxx1+bar_max,HUDy2-BLOCKSIZE/2,c_gray,c_gray,c_gray,c_gray,false);
