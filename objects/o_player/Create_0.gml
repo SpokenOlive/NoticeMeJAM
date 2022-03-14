@@ -10,10 +10,10 @@ event_inherited();
 	}
 
 	function adjust_stats() {
-		hp_max				= stats[pStat.hp].base			+ max(stats[pStat.hp].lvl-1,0);
-		blaster_charge_inc	= stats[pStat.recharge].base	+ max(stats[pStat.recharge].lvl/4-1,0);
-		blaster_charge_max	= stats[pStat.energy].base		+ max(stats[pStat.energy].lvl/4-1,0);
-		damage				= stats[pStat.dmg].base			+ (stats[pStat.dmg].lvl-1);
+		hp_max				= stats[eStat.hp].base			+ max(stats[eStat.hp].lvl-1,0);
+		blaster_charge_inc	= stats[eStat.recharge].base	+ max(stats[eStat.recharge].lvl/4-1,0);
+		blaster_charge_max	= stats[eStat.energy].base		+ max(stats[eStat.energy].lvl/4-1,0);
+		damage				= stats[eStat.dmg].base			+ (stats[eStat.dmg].lvl-1);
 	}
 
 	function draw_gui_bar(sprite,xx,yy,cur,mx,offset) {
@@ -46,17 +46,30 @@ event_inherited();
 // =====================
 // SPRITES
 // =====================
-sprite_idle				= [s_playerRed_idle,	s_playerRed_idle_shoot_forward,s_playerRed_idle_shoot_up,s_playerRed_idle_shoot_down];
-sprite_run				= [s_playerRed_run,		s_playerRed_run_shoot_forward,s_playerRed_run_shoot_up,s_playerRed_run_shoot_down];
-sprite_jump				= [s_playerRed_jump,	s_playerRed_jump_shoot_forward,s_playerRed_jump_shoot_up,s_playerRed_jump_shoot_down];
+sprite_idle				= [s_player_idle,s_player_idle_shoot_forward,s_player_idle_shoot_up,s_player_idle_shoot_down];
+sprite_run				= [s_player_run,s_player_run_shoot_forward,s_player_run_shoot_up,s_player_run_shoot_down];
+sprite_jump				= [s_player_jump,s_player_jump_shoot_forward,s_player_jump_shoot_up,s_player_jump_shoot_down];
 
 // =====================
 // STATS
 // =====================
+<<<<<<< HEAD
 stats[pStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
 stats[pStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
 stats[pStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
 stats[pStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
+=======
+enum eStat {
+	hp,
+	energy,
+	recharge,
+	dmg,
+}
+stats[eStat.hp]			= { name: "HEALTH:",	base: 3, lvl: 1, mx: 10, cost: 10 };
+stats[eStat.energy]		= { name: "ENERGY:",	base: 8, lvl: 1, mx: 10, cost: 10 };
+stats[eStat.recharge]	= { name: "RECHARGE:",	base: 2, lvl: 1, mx: 10, cost: 10 };
+stats[eStat.dmg]		= { name: "DAMAGE:",	base: 1, lvl: 1, mx: 10, cost: 10 };
+>>>>>>> parent of 7f2d9b2 (yea)
 upgrading				= false;
 menu_index				= 0;
 
