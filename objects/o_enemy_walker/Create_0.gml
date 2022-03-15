@@ -22,7 +22,7 @@ drops			= [o_scrap_smol,o_scrap_smol,o_scrap_beeg,noone,];
 // =====================
 // STATS
 // =====================
-hp_max			= 9;
+hp_max			= 12;
 hp_cur			= hp_max;
 
 // =====================

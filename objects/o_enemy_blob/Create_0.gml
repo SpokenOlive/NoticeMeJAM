@@ -3,6 +3,7 @@ event_inherited();
 // ===========================
 // BLOB 
 // ===========================
+despawner		= false;
 ai_type			= ai_types.blob;
 sprite_idle		= [s_enemy_blob_appear_day,s_enemy_blob_appear_night];
 sprite_vanish	= [s_enemy_blob_vanish_day,s_enemy_blob_vanish_night];
