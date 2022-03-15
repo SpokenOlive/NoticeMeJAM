@@ -14,8 +14,8 @@
   "soundFile": "snd_pew1.wav",
   "duration": 1.2,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "sfx",
+    "path": "folders/Sounds/sfx.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_pew1",

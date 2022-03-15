@@ -6,8 +6,8 @@ if (room == rm_title) {
 var music = noone;
 switch (room) {
 	case rm_level_1 :
-	case rm_level_2 :
-	case rm_test_level1 :
+	//case rm_level_2 :
+	//case rm_test_level1 :
 		music = music_BlastEmG;
 	break;
 }
