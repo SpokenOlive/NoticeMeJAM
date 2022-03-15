@@ -89,8 +89,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "flyer",
+    "path": "folders/Sprites/enemies/flyer.yy",
   },
   "resourceVersion": "1.0",
   "name": "flyguygreen",

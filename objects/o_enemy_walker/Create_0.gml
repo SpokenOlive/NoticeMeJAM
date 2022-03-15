@@ -4,11 +4,11 @@ event_inherited();
 // WALKER 
 // ===========================
 ai_type			= ai_types.brawler;
-sprite_idle		= s_enemy_walker_idle;
-sprite_move		= s_enemy_walker_walk;
-sprite_melee	= s_enemy_walker_melee;
+sprite_idle		= [s_enemy_walker_idle_day,s_enemy_walker_idle_night];
+sprite_move		= [s_enemy_walker_walk_day,s_enemy_walker_walk_night];
+sprite_melee	= [s_enemy_walker_melee_day,s_enemy_walker_melee_night];
 
-sprite_index = sprite_idle;
+sprite_index = sprite_idle[night_index];
 
 attack_timer_inc= 10;
 melee_distance	= 128;

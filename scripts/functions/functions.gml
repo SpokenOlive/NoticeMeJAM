@@ -126,7 +126,7 @@ function blob_controller() {
 function brawler_controller() {
 	if (attack_timer > 0) {
 		attack_timer	= max(attack_timer - attack_timer_inc * global.time,0);
-		sprite_index	= sprite_move;
+		sprite_index	= sprite_move[night_index];
 		e_state			= e_states.wait;
 	}
 	else {
@@ -136,7 +136,7 @@ function brawler_controller() {
 	switch (e_state) {
 		case e_states.approach :
 		case e_states.retreat :
-			sprite_index	= sprite_move;
+			sprite_index	= sprite_move[night_index];
 			image_xscale	= face_dir;
 			move_dir		= (e_state == e_states.approach)? image_xscale : image_xscale * -1;
 			hspd			= hspd_max * move_dir * global.time;
@@ -144,7 +144,7 @@ function brawler_controller() {
 			if (distance_to_player <= melee_distance && attack_timer == 0) {
 				hspd			= 0;
 				image_index		= 0;
-				sprite_index	= sprite_melee;
+				sprite_index	= sprite_melee[night_index];
 				state			= a_states.melee;
 				attack_timer	= attack_timer_max;
 			}
