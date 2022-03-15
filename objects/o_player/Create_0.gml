@@ -81,7 +81,7 @@ blaster_charge_cur	= blaster_charge_max;
 //troubleshooting
 //cur_grav	= 0;
 scrap			= 0;
-invul_timer_max	= 1;
+invul_timer_max	= 1.3;
 invul_timer		= invul_timer_max;
 cur_checkpoint	= noone;
 upgrade_bck_spd	= 0;
