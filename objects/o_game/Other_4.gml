@@ -1,5 +1,5 @@
 if (room == rm_title) {
-	room_goto(rm_level_3);
+	room_goto(rm_test_level_1);
 	exit;
 }
 
@@ -17,7 +17,7 @@ if (!audio_is_playing(music)) {
 }
 
 if (!instance_exists(o_player)) {
-	instance_create_layer(x,y,"player",o_player);		
+	instance_create_layer(x,y,"player",o_player);
 }
 
 var checkpoints = ds_priority_create();

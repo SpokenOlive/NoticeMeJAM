@@ -89,7 +89,7 @@ enum pStat {
 function blob_controller() {
 	hspd_max = (global.nighttime) ? hspd_max_night : hspd_max_day;
 	
-	if (!global.pause && despawner) {
+	if (!global.pause) {
 		life_timer	-= life_timer_inc * global.time;
 		if (life_timer <= 0) {
 			e_state			= e_states.vanish;
@@ -149,9 +149,6 @@ function brawler_controller() {
 				attack_timer	= attack_timer_max;
 			}
 		break;
-	}
-	if (place_meeting(x,y,o_player)) {
-		o_player.actor_take_hit(sign(x - o_player.x),1,damage_type);
 	}
 }
 
