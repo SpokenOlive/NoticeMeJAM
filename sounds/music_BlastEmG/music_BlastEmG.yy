@@ -14,8 +14,8 @@
   "soundFile": "music_BlastEmG.wav",
   "duration": 117.333336,
   "parent": {
-    "name": "music",
-    "path": "folders/Sounds/music.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "music_BlastEmG",
