@@ -1,13 +1,12 @@
 if (room == rm_title) {
-	room_goto(rm_level_3);
+	room_goto(rm_test_level_1);
 	exit;
 }
 
 var music = noone;
 switch (room) {
-	case rm_level_1 :
-	case rm_level_2 :
-	case rm_test_level1 :
+	case rm_test_level_1 :
+	case rm_test_level_2 :
 		music = music_BlastEmG;
 	break;
 }
