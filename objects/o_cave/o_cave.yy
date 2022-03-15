@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_cave",
-    "path": "sprites/s_cave/s_cave.yy",
+    "name": "s_cave_new",
+    "path": "sprites/s_cave_new/s_cave_new.yy",
   },
   "solid": false,
   "visible": true,

@@ -5,6 +5,8 @@ if (global.pause) {
 	exit;
 }
 
+night_index	= (global.nighttime) ? 1 : 0;
+
 switch (state) {
 	case a_states.hurt : 		
 		stun_timer -= stun_timer_inc * global.time;

@@ -1,6 +1,18 @@
 if (room == rm_title) {
-	room_goto(rm_test_level_2);
+	room_goto(rm_test_level_1);
 	exit;
+}
+
+var music = noone;
+switch (room) {
+	case rm_test_level_1 :
+	case rm_test_level_2 :
+		music = music_BlastEmG;
+	break;
+}
+
+if (!audio_is_playing(music)) {
+	audio_play_sound_on(global.music_emitter,music,true,10);
 }
 
 if (!instance_exists(o_player)) {
@@ -16,8 +28,7 @@ for (var i = 0; i < instance_number(o_checkpoint); i++) {
 if (ds_priority_size(checkpoints) > 0) {
 	with (ds_priority_find_min(checkpoints)) {
 		o_player.x = x;
-		o_player.y = y
-		//instance_destroy();
+		o_player.y = y;
 	}
 }
 

@@ -87,21 +87,26 @@ enum pStat {
 // ===========================
 // BLOB
 function blob_controller() {
+	hspd_max = (global.nighttime) ? hspd_max_night : hspd_max_day;
+	
 	if (!global.pause) {
 		life_timer	-= life_timer_inc * global.time;
 		if (life_timer <= 0) {
 			e_state			= e_states.vanish;
-			sprite_index	= sprite_vanish;
+			sprite_index	= sprite_vanish[night_index];
 		}
 	}
 	
 	switch (e_state) {
+		case e_states.appear :
+			sprite_index = sprite_idle[night_index];
+		break;
 		case e_states.approach :
 			if (hit_wall) {
 				move_dir *= -1;
 			}
 			image_xscale	= move_dir;
-			sprite_index	= sprite_move;
+			sprite_index	= sprite_move[night_index];
 			hspd			= hspd_max * move_dir * global.time;
 		break;
 		case e_states.vanish :
@@ -147,11 +152,11 @@ function brawler_controller() {
 	}
 }
 
-// BRAWLER
+// SPITTER
 function spitter_controller() {
 	if (attack_timer > 0) {
 		attack_timer	= max(attack_timer - attack_timer_inc * global.time,0);
-		sprite_index	= sprite_move;
+		sprite_index	= sprite_move[night_index];
 		e_state			= e_states.wait;
 	}
 	else {
@@ -161,7 +166,7 @@ function spitter_controller() {
 	switch (e_state) {
 		case e_states.approach :
 		case e_states.retreat :
-			sprite_index	= sprite_move;
+			sprite_index	= sprite_move[night_index];
 			image_xscale	= face_dir;
 			move_dir		= (e_state == e_states.approach)? image_xscale : image_xscale * -1;
 			hspd			= hspd_max * move_dir * global.time;
@@ -169,7 +174,7 @@ function spitter_controller() {
 			if (in_cam_view(x,y) && attack_timer == 0) {
 				hspd			= 0;
 				image_index		= 0;
-				sprite_index	= sprite_shoot;
+				sprite_index	= sprite_shoot[night_index];
 				shot_dir		= (image_xscale > 0) ? 0 : 180;
 				state			= a_states.launch;
 				attack_timer	= attack_timer_max;
@@ -181,6 +186,9 @@ function spitter_controller() {
 // FLYER
 function flyer_controller() {
 	e_state	= e_states.approach;
+	hspd_max		= (global.nighttime) ? hspd_max_night : hspd_max_day;
+	shot_spd		= (global.nighttime) ? shot_spd_night : shot_spd_day;
+	
 	switch (e_state) {
 		case e_states.approach :
 			if (attack_timer > 0) {
@@ -189,7 +197,7 @@ function flyer_controller() {
 			
 			move_dir		= face_dir;
 			image_xscale	= move_dir;
-			sprite_index	= sprite_move;
+			sprite_index	= sprite_move[night_index];
 			var faccel		= haccel;
 			if (image_xscale != sign(hspd)) {
 				faccel *= .5;

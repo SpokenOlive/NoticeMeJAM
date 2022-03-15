@@ -21,9 +21,7 @@ if (ds_list_size(list) > 0) {
 
 ds_list_destroy(list);
 
-hit = !in_cam_view(nx,ny) || place_meeting(nx,ny,o_solid);
-
-if (hit) {
+if (hit || !in_cam_view(nx,ny) || place_meeting(nx,ny,o_solid)) {
 	instance_destroy();
 }
 else {

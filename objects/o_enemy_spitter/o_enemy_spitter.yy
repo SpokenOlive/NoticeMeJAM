@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_enemy_spitter_walk",
-    "path": "sprites/s_enemy_spitter_walk/s_enemy_spitter_walk.yy",
+    "name": "s_enemy_spitter_spit_day",
+    "path": "sprites/s_enemy_spitter_spit_day/s_enemy_spitter_spit_day.yy",
   },
   "solid": false,
   "visible": true,

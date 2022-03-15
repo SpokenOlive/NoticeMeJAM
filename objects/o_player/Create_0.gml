@@ -10,7 +10,11 @@ event_inherited();
 	}
 
 	function adjust_stats() {
+		var hp_max_cur		= hp_max;
 		hp_max				= stats[pStat.hp].base			+ max(stats[pStat.hp].lvl-1,0);
+		if (hp_max != hp_max_cur) {
+			hp_cur = hp_max;
+		}
 		blaster_charge_inc	= stats[pStat.recharge].base	+ max(stats[pStat.recharge].lvl/4-1,0);
 		blaster_charge_max	= stats[pStat.energy].base		+ max(stats[pStat.energy].lvl/4-1,0);
 		damage				= stats[pStat.dmg].base			+ (stats[pStat.dmg].lvl-1);
@@ -80,6 +84,7 @@ scrap			= 0;
 invul_timer_max	= 1;
 invul_timer		= invul_timer_max;
 cur_checkpoint	= noone;
+upgrade_bck_spd	= 0;
 
 // =====================
 // INPUTS

@@ -12,7 +12,4 @@ if (state == a_states.dead) {
 	draw_text(x,y,death_timer);
 }
 
-
 draw_self();
-//draw_set_font(global.font)
-//draw_sprite(mask_index,0,x,y);

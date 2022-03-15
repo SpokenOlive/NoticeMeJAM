@@ -48,6 +48,7 @@ hit_wall	= false;
 attacking	= false;
 gravity_exempt	= false;
 invulnerable= false;
+night_index	= (global.nighttime) ? 1 : 0;
 
 // =====================
 // FUNCTIONS

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_enemy_blob_act",
-    "path": "sprites/s_enemy_blob_act/s_enemy_blob_act.yy",
+    "name": "s_enemy_blob_act_day",
+    "path": "sprites/s_enemy_blob_act_day/s_enemy_blob_act_day.yy",
   },
   "solid": false,
   "visible": true,
@@ -29,7 +29,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

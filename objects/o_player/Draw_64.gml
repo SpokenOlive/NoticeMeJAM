@@ -4,9 +4,11 @@
 if (global.pause) {
 	draw_set_font(global.font_16);
 	
+	draw_text(16,16,"UBS: " + string(upgrade_bck_spd));
+	
 	if (upgrading) {
 		draw_rectangle_color(0,0,10000,10000,c_white,c_white,c_white,c_white,false);
-		draw_sprite(s_cave_background,0,0,0);
+		draw_sprite(s_cave_background_new,value_wrap(upgrade_bck_spd+global.time*100,0,2),0,0);
 	}
 	
 	for (var i = 0; i < 14; i++) {
@@ -14,8 +16,6 @@ if (global.pause) {
 			draw_sprite(s_background_block,0,i*BLOCKSIZE,j*BLOCKSIZE);
 		}
 	}
-	
-	draw_text(4,4,menu_index);
 	
 	var x1 = BLOCKSIZE*2;
 	var y1 = BLOCKSIZE;
@@ -49,8 +49,6 @@ if (global.pause) {
 				draw_sprite(s_menu_arrow,0,x1-BLOCKSIZE,y1+yoff+BLOCKSIZE);
 			}
 		}
-		
-		draw_text(0,y1+yoff,col);
 		
 		col++;
 	}

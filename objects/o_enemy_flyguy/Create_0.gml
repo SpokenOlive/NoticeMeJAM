@@ -4,10 +4,9 @@ event_inherited();
 // FLYGUY 
 // ===========================
 ai_type			= ai_types.flyer;
-sprite_move		= s_enemy_flyguy_fly;
+sprite_move		= [s_enemy_flyguy_fly_day,s_enemy_flyguy_fly_night];
 e_state			= e_states.approach;
 
-sprite_index	= sprite_move;
 haccel			*= 3
 attack_timer_max= 2;
 attack_timer	= attack_timer_max;

@@ -4,11 +4,11 @@ event_inherited();
 // SPITTER 
 // ===========================
 ai_type			= ai_types.spitter;
-sprite_idle		= s_enemy_spitter_walk;
-sprite_move		= s_enemy_spitter_walk;
-sprite_shoot	= s_enemy_spitter_spit;
+sprite_idle		= [s_enemy_spitter_walk_day,s_enemy_spitter_walk_night];
+sprite_move		= [s_enemy_spitter_walk_day,s_enemy_spitter_walk_night];
+sprite_shoot	= [s_enemy_spitter_spit_day,s_enemy_spitter_spit_night];
 
-sprite_index = sprite_idle;
+sprite_index = sprite_idle[night_index];
 
 attack_timer_inc= 1;
 launch_frame	= 1;
