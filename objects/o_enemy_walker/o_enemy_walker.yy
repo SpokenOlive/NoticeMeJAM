@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_enemy_walker_idle_day",
-    "path": "sprites/s_enemy_walker_idle_day/s_enemy_walker_idle_day.yy",
+    "name": "s_enemy_walker_idle",
+    "path": "sprites/s_enemy_walker_idle/s_enemy_walker_idle.yy",
   },
   "solid": false,
   "visible": true,

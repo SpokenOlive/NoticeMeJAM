@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "blob",
-    "path": "folders/Sprites/enemies/blob.yy",
+    "name": "my_takes",
+    "path": "folders/Sprites/my_takes.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_enemy_blob_act_night",

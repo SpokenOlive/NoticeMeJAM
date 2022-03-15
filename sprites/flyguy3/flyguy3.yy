@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "flyer",
-    "path": "folders/Sprites/enemies/flyer.yy",
+    "name": "my_takes",
+    "path": "folders/Sprites/my_takes.yy",
   },
   "resourceVersion": "1.0",
   "name": "flyguy3",
